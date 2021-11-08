@@ -1,0 +1,88 @@
+<p class="display-1 bg-danger rounded-pill d-inline-block py-3 px-5 text-white">{{ section.settings.section_heading }}</p>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+	{% if section.settings.show_indicators %}
+		<div class="carousel-indicators">
+			{% for block in section.blocks %}
+				{% if forloop.first %}
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.index0 }}" class="active" aria-current="true" aria-label="Slide 1"></button>
+				{% else %}
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.index0 }}" aria-label="Slide 2"></button>
+				{% endif %}
+			{% endfor %}
+		</div>
+	{% endif %}
+	<div class="carousel-inner">
+		{% for block in section.blocks %}
+			{% case block.type %}
+				{% when 'slide' %}
+					<div class="carousel-item {% if forloop.first %} active {% endif %}">
+						{{ block.settings.slide_image | img_url: 'master' | img_tag: 'alt text', 'd-block w-100' }}
+						<div class="carousel-caption d-none d-md-block bg-primary">
+							<h3>{{ block.settings.slide_heading }}</h3>
+							<p>{{ block.settings.slide_content }}</p>
+						</div><!-- /.carousel-caption -->
+					</div><!-- /.carousel-item -->
+			{% endcase %}
+		{% endfor %}
+	</div><!-- /.carouse-inner -->
+	{% if section.settings.show_arrows %}
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button><!-- /.carouse-control-prev -->
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button><!-- /.carousel-control-next -->
+	{% endif %}
+</div>
+
+{% schema %}
+{
+	"name": "Featured Slider",
+	"tag": "section",
+	"class": "appol-featured-slider",
+	"settings": [
+		{
+			"type": "text",
+			"id": "section_heading",
+			"label": "Section Heading"
+		},
+		{
+			"type": "checkbox",
+			"id": "show_arrows",
+			"label": "Show Arrows?"
+		},
+		{
+			"type": "checkbox",
+			"id": "show_indicators",
+			"label": "Show Indicators?"
+		}
+	],
+	"blocks": [
+		{
+			"name": "Slide",
+			"type": "slide",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "slide_image",
+					"label": "Slide Image"
+				},
+				{
+					"type": "text",
+					"id": "slide_heading",
+					"label": "Slide Heading",
+					"default": "Slide 1"
+				},
+				{
+					"type": "richtext",
+					"id": "slide_content",
+					"label": "Slide Content",
+					"default": "<p>Side description 1</p>"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

@@ -1,0 +1,34 @@
+{% for block in section.blocks %}
+	{% case block.type %}
+		{% when 'super_title' %}
+			{% if section.settings.add_margin == 'with_margin' %}
+				<div class="my-5">
+					<h1 class="display-1">{{ block.settings.super_title_text }}</h1>
+				</div>
+			{% else %}
+				<h1 class="display-1">{{ block.settings.super_title_text }}</h1>
+			{% endif %}
+	{% endcase %}
+{% endfor %}
+
+{% schema %}
+{
+	"name": "Display Heading",
+	"tag": "section",
+	"class": "super-heading",
+	"blocks": [
+		{
+			"name": "Super Title",
+			"type": "super_title",
+			"settings": [
+				{
+					"type": "text",
+					"id": "super_title_text",
+					"label": "Text",
+					"default": "Hello World!"
+				}
+			]
+		}
+	]
+}
+{% endschema %}
