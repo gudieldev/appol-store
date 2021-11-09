@@ -2,7 +2,13 @@
 	"sections": {
 		"appol_featured_slider": {
 			"type": "appol-featured-slider"
+		},
+		"appol_featured_collection": {
+			"type": "appol-featured-collection"
 		}
 	},
-	"order": ["appol_featured_slider"]
+	"order": [
+		"appol_featured_slider",
+		"appol_featured_collection"
+	]
 }
