@@ -5,10 +5,14 @@
 		},
 		"appol_featured_collection": {
 			"type": "appol-featured-collection"
+		},
+		"appol_faqs": {
+			"type": "appol-faqs"
 		}
 	},
 	"order": [
 		"appol_featured_slider",
-		"appol_featured_collection"
+		"appol_featured_collection",
+		"appol_faqs"
 	]
 }
