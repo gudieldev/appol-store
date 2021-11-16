@@ -30,7 +30,9 @@
 
     {% render 'meta-tags' %}
 
+
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+	<script src="{{ 'tiny-slider.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
 
     {%- liquid
@@ -129,10 +131,10 @@
   </head>
 
   <body class="gradient">
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
-
     {% comment %}{% section 'announcement-bar' %} {% endcomment %}
 	{% section 'appol-announcement-bar' %}
 	{% section 'hello-world' %}
@@ -176,7 +178,6 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 	<script src="{{ 'bootstrap.min.js' | asset_url }}" defer="defer"></script>
-	<script src="{{ 'tiny-slider.js' | asset_url }}" defer="defer"></script>
 	<script src="{{ 'site-scripts.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
