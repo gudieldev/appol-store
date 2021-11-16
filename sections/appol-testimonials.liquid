@@ -1,0 +1,82 @@
+<div class="container">
+	<h1 class="display-1 bg-danger rounded-pill d-inline-block py-3 px-5 text-white mb-5">{{ section.settings.section_heading }}</h1>
+
+	<div class="testimonials-slider__arrows">
+		<div class="slick-arrows-wrapper"></div><!-- /.slick-arrows-wrapper -->
+	</div><!-- /.featured-collection-slider_arrows -->
+	<div class="testimonials-slider">
+		{% for block in section.blocks %}
+			{% case block.type %}
+				{% when 'testimonial' %}
+					<div class="item">
+						<div class="testimonial card">
+							<div class="profile-picture">
+								{% unless block.settings.author_image == blank %}
+									{{ block.settings.author_image | img_url: 'master' | img_tag: '', '' }}
+								{% else %}
+									{{ 'product-5' | placeholder_svg_tag }}
+								{% endunless %}
+							</div><!-- /.profile-picture -->
+							<div class="stars">
+								{% for index in (1..block.settings.rate) %}
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+								{% endfor %}
+							</div>
+							<h5>{{ block.settings.author_name }}</h5>
+							<p>{{ block.settings.author_testimonial }}</p>
+						</div><!-- /.testimonial -->
+					</div><!-- /.item -->
+			{% endcase %}
+		{% endfor %}
+		
+	</div><!-- /.collection-slider -->
+</div><!-- /.container -->
+
+{% schema %}
+{
+	"name": "Testimonials",
+	"tag": "section",
+	"settings": [
+		{
+			"label": "Section Heading",
+			"type": "text",
+			"id": "section_heading",
+			"default": "Testimonials :)"
+		}
+	],
+	"blocks": [
+		{
+			"name": "Testimonial",
+			"type": "testimonial",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "author_image",
+					"label": "Image"
+				},
+				{
+					"type": "range",
+					"id": "rate",
+					"label": "Rate",
+					"min": 1,
+					"max": 5,
+					"step": 1,
+					"default": 1
+				},
+				{
+					"type": "text",
+					"id": "author_name",
+					"label": "Name",
+					"default": "John Doe"
+				},
+				{
+					"type": "richtext",
+					"id": "author_testimonial",
+					"label": "Testimonial",
+					"default": "<p>This is the best online store I ever visit. Everything is high quality and super cheap.</p>"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

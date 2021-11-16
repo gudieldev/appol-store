@@ -8,11 +8,15 @@
 		},
 		"appol_faqs": {
 			"type": "appol-faqs"
+		},
+		"appol_testimonials": {
+			"type": "appol-testimonials"
 		}
 	},
 	"order": [
 		"appol_featured_slider",
 		"appol_featured_collection",
-		"appol_faqs"
+		"appol_faqs",
+		"appol_testimonials"
 	]
 }

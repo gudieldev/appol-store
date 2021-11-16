@@ -123,6 +123,7 @@
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
 
 	{{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+	{{ 'tiny-slider.css' | asset_url | stylesheet_tag }}
 	{{ 'style.css' | asset_url | stylesheet_tag }}
 
   </head>
@@ -175,5 +176,7 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 	<script src="{{ 'bootstrap.min.js' | asset_url }}" defer="defer"></script>
+	<script src="{{ 'tiny-slider.js' | asset_url }}" defer="defer"></script>
+	<script src="{{ 'site-scripts.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
