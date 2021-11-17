@@ -1,22 +1,43 @@
 {
 	"sections": {
 		"appol_featured_slider": {
-			"type": "appol-featured-slider"
+			"type": "appol-featured-slider",
+			"settings": {
+				"section_heading": "Appol Featured Slider xD",
+				"show_arrows": true,
+				"show_indicators": false
+			}
 		},
 		"appol_featured_collection": {
-			"type": "appol-featured-collection"
+			"type": "appol-featured-collection",
+			"settings": {
+				"section_heading": "All Products",
+				"featured_collection": "all"
+			}
 		},
 		"appol_faqs": {
-			"type": "appol-faqs"
+			"type": "appol-faqs",
+			"settings": {
+				"section_heading": "The FAQs"
+			}
 		},
 		"appol_testimonials": {
-			"type": "appol-testimonials"
+			"type": "appol-testimonials",
+			"settings": {
+				"section_heading": "Site testimonials",
+				"show_controls": true,
+				"show_indicators": true
+			}
+		},
+		"appol_social_icons": {
+			"type": "appol-social-icons"
 		}
 	},
 	"order": [
 		"appol_featured_slider",
 		"appol_featured_collection",
 		"appol_faqs",
-		"appol_testimonials"
+		"appol_testimonials",
+		"appol_social_icons"
 	]
 }
