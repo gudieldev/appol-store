@@ -1,3 +1,16 @@
+.featured-slider-wrapper .slide {
+  position: relative;
+}
+
+.featured-slider-wrapper .slide .slide-content {
+  background: rgba(220, 53, 69, 0.7);
+  position: absolute;
+  bottom: 0;
+  z-index: 5;
+  color: #fff;
+  text-align: center;
+}
+
 .featured-image {
   width: 100%;
   padding-bottom: 100%;
@@ -39,7 +52,7 @@
 
 .tns-controls button {
   border: 0;
-  background-color: darkred;
+  background-color: #dc3545;
   color: #fff;
   font-size: 15px;
   padding: 5px 10px;
@@ -71,11 +84,11 @@
   border: 0;
   margin: 0 5px;
   background-color: #ccc;
-  border: 2px solid darkred;
+  border: 2px solid #dc3545;
 }
 
 .tns-nav button.tns-nav-active {
-  background-color: darkred;
+  background-color: #dc3545;
 }
 
 .tns-nav button:first-child {
@@ -94,5 +107,26 @@
 .object-fit-contain img {
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+section {
+  padding: 50px 0;
+}
+
+.social-media-wrapper a {
+  margin-left: 15px;
+}
+
+.social-media-wrapper a:first-child {
+  margin-left: 0;
+}
+
+.social-media-wrapper svg {
+  width: 30px;
+  height: 30px;
+}
+
+.social-media-wrapper svg path {
+  fill: #dc3545;
 }
 /*# sourceMappingURL=style.css.map */

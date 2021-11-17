@@ -1,3 +1,22 @@
+$color-danger: #dc3545;
+
+
+.featured-slider-wrapper {
+	.slide {
+		position: relative;
+		
+		.slide-content {
+			background: rgba($color-danger, .7);
+			position: absolute;
+			bottom: 0;
+			z-index: 5;
+			color: #fff;
+			text-align: center;
+		}
+	}
+
+}
+
 .featured-image {
 	width: 100%;
 	padding-bottom: 100%;
@@ -29,7 +48,7 @@
 
 	button {
 		border: 0;
-		background-color: darkred;
+		background-color: $color-danger;
 		color: #fff;
 		font-size: 15px;
 		padding: 5px 10px;
@@ -57,10 +76,10 @@
 		border: 0;
 		margin: 0 5px;
 		background-color: #ccc;
-		border: 2px solid darkred;
+		border: 2px solid $color-danger;
 		
 		&.tns-nav-active {
-			background-color: darkred;
+			background-color: $color-danger;
 		}
 		&:first-child {
 			margin-left: 0;
@@ -77,4 +96,25 @@
 
 .object-fit-contain img {
 	object-fit: contain;
+}
+
+section {
+	padding: 50px 0;
+}
+
+.social-media-wrapper {
+	a {
+		margin-left: 15px;
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+	svg {
+		width: 30px;
+		height: 30px;
+		
+		path {
+			fill: $color-danger;
+		}
+	}
 }

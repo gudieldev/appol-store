@@ -1,12 +1,12 @@
 <div class="container">
-	<h1 class="display-1 bg-danger rounded-pill d-inline-block py-3 px-5 text-white mb-5">{{ section.settings.section_heading }}</h1>
+	{% render 'appol-section-title', section_title: section.settings.section_heading %}
 	<div class="row">
 		{% if section.blocks.size == 0 %}
 			{% for block in (1..3) %}
 				<div class="col-12 col-sm-6 col-md-4">
 					<a href="#0">
-						<div class="question bg-light">
-							{{ 'product-4.jpg' | asset_url | img_tag }}
+						<div class="question bg-light border border-secondary">
+							{{ 'image' | placeholder_svg_tag }}
 						</div><!-- /.question -->
 					</a><!-- /a -->
 					

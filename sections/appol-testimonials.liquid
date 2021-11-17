@@ -1,5 +1,5 @@
 <div class="container">
-	<h1 class="display-1 bg-danger rounded-pill d-inline-block py-3 px-5 text-white mb-5">{{ section.settings.section_heading }}</h1>
+	{% render 'appol-section-title', section_title: section.settings.section_heading %}
 	<div class="testimonials-slider__arrows">
 		<div class="slick-arrows-wrapper"></div><!-- /.slick-arrows-wrapper -->
 	</div><!-- /.featured-collection-slider_arrows -->
