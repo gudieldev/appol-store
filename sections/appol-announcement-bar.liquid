@@ -1,21 +1,21 @@
-<div class="container">
-
-	{% for block in section.blocks %}
-		{% case block.type %}
-			{% when 'announcement' %}
-				<div class="alert alert-primary {{ block.settings.text_alignment }}" role="alert">
-					{{ block.settings.announcement_text }}
-				</div><!-- /.alert -->
-		{% endcase %}
-	{% endfor %}
-
-</div><!-- /.container -->
+{% if section.blocks.size > 0 %}
+	<section>
+		<div class="container">
+			{% for block in section.blocks %}
+				{% case block.type %}
+					{% when 'announcement' %}
+						<div class="alert alert-primary {{ block.settings.text_alignment }}" role="alert">
+							{{ block.settings.announcement_text }}
+						</div><!-- /.alert -->
+				{% endcase %}
+			{% endfor %}
+		</div><!-- /.container -->
+	</section><!-- /section -->
+{% endif %}
 
 {% schema %}
 {
 	"name": "Announcement Bar",
-	"tag": "section",
-	"class": "section-announcement-bar",
 	"settings": [
 		{
 			"type": "select",

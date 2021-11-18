@@ -8,16 +8,18 @@
 			{% for block in (1..8) %}
 				<div class="item">
 					<div class="testimonial card">
-						<div class="profile-picture featured-image object-fit-cover">
+						<div class="profile-picture featured-image object-fit-cover bg-light mb-2">
 							{{ 'product-5' | placeholder_svg_tag }}
 						</div><!-- /.profile-picture -->
-						<div class="stars">
+						<div class="stars d-flex justify-content-center">
 							{% for index in (1..5) %}
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill mx-1" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
 							{% endfor %}
 						</div>
-						<h5>The Name</h5>
-						<p>The testimonial... Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+						<div class="text-center mt-3 px-3">
+							<h5>The Name</h5>
+							<p>The testimonial... Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+						</div><!-- /.text-center -->
 					</div><!-- /.testimonial -->
 				</div><!-- /.item -->
 			{% endfor %}
@@ -27,7 +29,7 @@
 					{% when 'testimonial' %}
 						<div class="item">
 							<div class="testimonial card">
-								<div class="profile-picture featured-image object-fit-cover">
+								<div class="profile-picture featured-image object-fit-cover bg-light mb-2">
 									{% unless block.settings.author_image == blank %}
 										{{ block.settings.author_image | img_url: 'master' | img_tag: '', '' }}
 									{% else %}
@@ -50,6 +52,12 @@
 	</div><!-- /.collection-slider -->
 	<div class="slide-indicators"></div>
 </div><!-- /.container -->
+
+{% style %}
+.stars svg path {
+	fill: #ffc107;
+}
+{% endstyle %}
 
 <script>
 	function testimonialsSlider() {

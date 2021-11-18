@@ -4,7 +4,7 @@
 	<div class="featured-slider-wrapper">
 		{% if section.blocks.size == 0 %}
 			{% for block in (1..2) %}
-				<div class="slide border border-info">
+				<div class="slide border border-secondary">
 					<div class="slide-img">
 						{{ 'lifestyle-' | append: forloop.index | placeholder_svg_tag }}
 					</div><!-- /.slide-img -->
