@@ -25,19 +25,15 @@
 				{% endif %}
 				<p>{% if product.compare_at_price != blank %} Offer: {% else %} Price: {% endif %} <span class="h3"><strong>{{ product.price | money_with_currency }}</strong></span></p>
 				{% form 'product', product %}
-				{{ product.variants.size }}
-				{% if product.variants.size > 1 %}
-					<p>{{ 'Variants:' }}</p>
-					<select name="id" class="form-select mb-3">
-						{% for variant in product.variants %}
-							<option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %}>
-								{{ variant.title }} - {{ variant.price | money_with_currency }}
-							</option>
-						{% endfor %}
-					</select>
-				{% else %}
-					<input type="hidden" name="id" value="{{ product.first_available_variant.id }}">
-				{% endif %}
+					{% if product.variants.size > 1 %}
+						<select name="id" class="form-select mb-3">
+							{% for variant in product.variants %}
+								<option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %}>{{ variant.price | money_with_currency }} - {{ variant.title }}</option>
+							{% endfor %}
+						</select>
+					{% else %}
+						<input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+					{% endif %}
 					<div class="quatity">
 						<p>Quantity</p>
 						<div class="input-group">

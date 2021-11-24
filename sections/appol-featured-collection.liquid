@@ -2,9 +2,11 @@
 	{% render 'appol-section-title', section_title: section.settings.section_heading %}
 	<div class="row">
 		{% for product in collections[section.settings.featured_collection].products %}
-			<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
-				{% render 'appol-product-card', product: product %}
-			</div><!-- /.col-12 -->
+			{% if product.available %}
+				<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+					{% render 'appol-product-card', product: product %}
+				</div><!-- /.col-12 -->
+			{% endif %}
 		{% endfor %}
 	</div><!-- /.row -->
 </div><!-- /.container -->
