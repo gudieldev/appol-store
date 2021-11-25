@@ -1,0 +1,80 @@
+<section>
+	<div class="container">
+		<div class="product-recommendations" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=8">
+			<div class="section-title badge bg-danger">
+				{% render 'appol-section-title' %}
+			</div><!-- /.section-title -->
+			
+			{% if recommendations.performed and recommendations.products_count > 0 %}
+				<div class="recommendations-slider">
+					{% for product in recommendations.products %}
+						<div class="item">
+							<div class="card">
+								<div class="product-img featured-image object-fit-contain bg-light">
+									{% if product.featured_image == blank %}
+										{{ 'product-1' | placeholder_svg_tag }}
+									{% else %}
+										{{ product.featured_image | img_url: 'master' | img_tag: 'alt', 'w-100' }}
+									{% endif %}
+								</div><!-- /.product-img -->
+								<div class="card-body">
+									<a href="{{ product.url }}"><h5 class="card-title">{{ product.title }}</h5></a>
+									<p class="card-text">{{ product.price | money_with_currency }}</p>
+									<a href="#0" class="btn btn-primary">View Details</a>
+								</div><!-- /.card-body -->
+							</div><!-- /.card -->
+						</div><!-- /.item -->
+					{% endfor %}
+				</div><!-- /.collection-slider -->
+			{% endif %}
+		</div><!-- /.product-recommendations -->
+
+	</div><!-- /.container -->
+</section><!-- /.featured-collection-slider -->
+
+<script>
+
+	
+
+	window.addEventListener('load', function() {
+		const handleIntersection = (entries, observer) => {
+			if (!entries[0].isIntersecting) return;
+			console.log('after return')
+			observer.unobserve(productRecommendationsSection);
+			const url = productRecommendationsSection.dataset.url;
+			
+			
+			fetch(url)
+			.then(response => response.text())
+			.then(text => {
+				const html = document.createElement('div');
+				html.innerHTML = text;
+				const recommendations = html.querySelector('.product-recommendations');
+				if (recommendations && recommendations.innerHTML.trim().length) {
+					productRecommendationsSection.innerHTML = recommendations.innerHTML;
+						let slider = tns({
+							container: '.recommendations-slider',
+							items: 4,
+							slideBy: 'page',
+							mouseDrag: true,
+							swipeAngle: false,
+							loop: false,
+							navPosition: 'bottom',
+							controls: true,
+							nav: true,
+							controlsText: ['<', '>'],
+							gutter: 15
+						});
+				}
+			})
+			.catch(e => {
+				console.log(e);
+			});
+		}
+
+		const productRecommendationsSection = document.querySelector('.product-recommendations');
+		const observer = new IntersectionObserver(handleIntersection, { rootMargin: '0px 0px 200px 0px' });
+		observer.observe(productRecommendationsSection);
+	
+	});
+</script>

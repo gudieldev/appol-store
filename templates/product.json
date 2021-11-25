@@ -2,9 +2,13 @@
 	"sections": {
 		"product_details": {
 			"type": "appol-main-product"
+		},
+		"product_recommendations": {
+			"type": "appol-product-related-collection"
 		}
 	},
 	"order": [
-		"product_details"
+		"product_details",
+		"product_recommendations"
 	]
 }
