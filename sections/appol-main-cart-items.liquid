@@ -1,0 +1,91 @@
+<section class="cart-details section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h5 class="text-center display-6 mb-5">{{ section.settings.section_heading }}</h5>
+			</div>
+		</div><!-- /.row -->
+		<form action="{{ routes.cart_url }}" method="post">
+			<div class="row">
+				<div class="col-12">
+					<div class="product-table-wrapper shadow py-5 px-3 rounded-3">
+						<table class="table table-striped table-hover align-middle">
+							<thead>
+								<tr>
+									<th scope="col-auto">#</th>
+									<th scope="col-auto">Product</th>
+									<th scope="col-auto">Price</th>
+									<th scope="col-auto">Quantity</th>
+									<th scope="col-auto">Total</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for item in cart.items %}
+									<tr>
+										<th scope="row">{{ forloop.index }}</th>
+										<td>
+											<div class="product d-flex" style="width: 100px;">
+												{{ item.image | img_url: "master" | img_tag: '', 'img-thumbnail' }}
+												<a href="{{ item.url }}" class="ms-2"><h6>{{ item.title }}</h6></a>
+											</div>
+										</td>
+										<td>{{ item.final_price | money_with_currency }}</td>
+										<td>
+											<div class="input-group"style="max-width: 150px;">
+												<button type="button" class="btn btn-secondary form-control btn-decrease">-</button>
+												<input type="text" name="updates[]" value="{{ item.quantity }}" class="form-control input-group-text quantity">
+												<button type="button" class="btn btn-secondary form-control btn-increase">+</button>
+											</div><!-- /.input-group -->
+										</td>
+										<td>{{ item.final_line_price | money_with_currency }}</td>
+										<td><a href="{{ item.url_to_remove }}" class="text-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-trash-fill" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/></svg></a></td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table><!-- /.table -->
+					</div><!-- /.product-table-wrapper -->
+				</div><!-- /.col-12 -->
+				<div class="col-auto ms-auto">
+					<div class="product-ctas mt-4">
+						<p class="fs-5">Total amount: <span class="fs-4"><strong>{{ cart.total_price | money_with_currency }}</strong></span></p>
+						<input type="submit" value="Update cart" class="btn btn-outline-success w-100 mt-1"/>
+						<input type="submit" value="checkout" name="checkout" class="btn btn-primary w-100 mt-1"/>
+					</div><!-- /.product-ctas -->
+				</div><!-- /.col-12 -->
+			</div><!-- /.row -->
+		</form><!-- /.form -->
+			
+		
+	</div><!-- /.container -->
+</section><!-- /.product-details -->
+
+<script>
+	let btnDecrease = document.querySelector('.btn-decrease');
+	let btnIncrease = document.querySelector('.btn-increase');
+	let quantity = document.querySelector('.quantity');
+
+	btnDecrease.addEventListener('click', function() {
+		if (quantity.value > 1) {
+			quantity.value = parseInt(quantity.value) - 1;
+		}
+	});
+
+	btnIncrease.addEventListener('click', function () {
+		quantity.value = parseInt(quantity.value) + 1;
+	});
+</script>
+
+{% schema %}
+{
+	"name": "Main Cart",
+	"settings": [
+		{
+			"type": "text",
+			"id": "section_heading",
+			"label": "Section Heading",
+			"default": "Shopping Cart"
+		}
+	]
+}
+{% endschema %}
