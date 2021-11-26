@@ -4,7 +4,7 @@
 			"type": "appol-main-product"
 		},
 		"product_recommendations": {
-			"type": "appol-product-related-collection"
+			"type": "appol-product-recommendations"
 		}
 	},
 	"order": [

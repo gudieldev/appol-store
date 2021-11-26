@@ -1,9 +1,7 @@
 <section>
 	<div class="container">
 		<div class="product-recommendations" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=8">
-			<div class="section-title badge bg-danger">
-				{% render 'appol-section-title' %}
-			</div><!-- /.section-title -->
+			{% render 'appol-section-title', section_title: section.settings.section_heading %}
 			
 			{% if recommendations.performed and recommendations.products_count > 0 %}
 				<div class="recommendations-slider">
@@ -33,9 +31,6 @@
 </section><!-- /.featured-collection-slider -->
 
 <script>
-
-	
-
 	window.addEventListener('load', function() {
 		const handleIntersection = (entries, observer) => {
 			if (!entries[0].isIntersecting) return;
@@ -77,4 +72,32 @@
 		observer.observe(productRecommendationsSection);
 	
 	});
+	
 </script>
+
+{%- comment -%} Configurations for the slider {%- endcomment -%}
+{% schema %}
+{
+	"name": "Product Recommendations",
+	"settings": [
+		{
+			"type": "text",	
+			"id": "section_heading",
+			"label": "Section Heading",
+			"default": "Product Recommendations"
+		},
+		{
+			"type": "checkbox",	
+			"id": "show_controls",
+			"label": "Show Controls",
+			"default": true
+		},
+		{
+			"type": "checkbox",	
+			"id": "show_nav",
+			"label": "Show Navigation Dots",
+			"default": true
+		}
+	]
+}
+{% endschema %}
