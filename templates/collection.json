@@ -1,14 +1,14 @@
 {
-  "sections": {
-    "banner": {
-      "type": "main-collection-banner"
-    },
-    "product-grid": {
-      "type": "main-collection-product-grid"
-    }
-  },
-  "order": [
-    "banner",
-    "product-grid"
-  ]
+	"sections": {
+		"hero": {
+			"type": "appol-collection-hero"
+		},
+		"products": {
+			"type": "appol-collection-products"
+		}
+	},
+	"order": [
+		"hero",
+		"products"
+	]
 }
