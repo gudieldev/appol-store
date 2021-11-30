@@ -1,0 +1,35 @@
+<div class="{{ section.settings.container_type }}">
+	<div class="row">
+		<div class="col-12">
+			<h5 class="text-center display-6 mb-5">{{ page.title }}</h5>
+		</div>
+		<div class="col-12">
+			{{ page.content }}
+		</div><!-- /.col-12 -->
+	</div><!-- /.row -->
+</div><!-- /.container -->
+
+{% schema %}
+{
+	"name": "Main Page Content",
+	"tag": "section",
+	"settings": [
+		{
+			"type": "select",
+			"id": "container_type",
+			"label": "Container Type",
+			"options": [
+				{
+					"value": "container",
+					"label": "Container"
+				},
+				{
+					"value": "container-fluid",
+					"label": "Container Fluid"
+				}
+			],
+			"default": "container"
+		}
+	]
+}
+{% endschema %}

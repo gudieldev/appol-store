@@ -1,7 +1,7 @@
 {
 	"sections": {
 		"main": {
-			"type": "appol-page-main"
+			"type": "appol-main-faq"
 		}
 	},
 	"order": [
