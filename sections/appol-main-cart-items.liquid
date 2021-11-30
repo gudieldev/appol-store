@@ -61,19 +61,25 @@
 </section><!-- /.product-details -->
 
 <script>
-	let btnDecrease = document.querySelector('.btn-decrease');
-	let btnIncrease = document.querySelector('.btn-increase');
-	let quantity = document.querySelector('.quantity');
+	let btnsDecrease = document.querySelectorAll('.btn-decrease');
+	let btnsIncrease = document.querySelectorAll('.btn-increase');
+	let quantity = document.querySelectorAll('.quantity');
 
-	btnDecrease.addEventListener('click', function() {
-		if (quantity.value > 1) {
-			quantity.value = parseInt(quantity.value) - 1;
-		}
-	});
-
-	btnIncrease.addEventListener('click', function () {
-		quantity.value = parseInt(quantity.value) + 1;
-	});
+	for (let i = 0; i < btnsDecrease.length; i++) {
+		let btnDecrease = btnsDecrease[i];
+		btnDecrease.addEventListener('click', function() {
+			if (btnDecrease.nextElementSibling.value > 1) {
+				btnDecrease.nextElementSibling.value = parseInt(btnDecrease.nextElementSibling.value) - 1;
+			}
+		});
+	}
+	
+	for (let i = 0; i < btnsIncrease.length; i++) {
+		let btnIncrease = btnsIncrease[i];
+		btnIncrease.addEventListener('click', function() {
+			btnIncrease.previousElementSibling.value = parseInt(btnIncrease.previousElementSibling.value) + 1;
+		});
+	}
 </script>
 
 {% schema %}
