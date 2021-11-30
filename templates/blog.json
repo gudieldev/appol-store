@@ -1,10 +1,10 @@
 {
-  "sections": {
-    "main": {
-      "type": "main-blog"
-    }
-  },
-  "order": [
-    "main"
-  ]
+	"sections": {
+		"blog_main": {
+			"type": "appol-blog-main"
+		}
+	},
+	"order": [
+		"blog_main"
+	]
 }
