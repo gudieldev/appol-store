@@ -6,7 +6,11 @@
 			{% for tag in article.tags %}
 				#{{ tag | append: ',' }}
 			{% endfor %}
-
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 		{% when 'article_share_buttons' %}
 			<div class="social-sharing-icons">
 				{% unless block.settings.facebook == blank %}
@@ -100,8 +104,7 @@
 	"blocks": [
 		{
 			"name": "Article Content",
-			"type": "article_content",
-			"limit": 1
+			"type": "article_content"
 		},
 		{
 			"name": "Article Share Buttons",
