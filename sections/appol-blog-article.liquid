@@ -48,7 +48,7 @@
 									By <strong>{{ comment.author }}</strong> on <em>{{ comment.created_at | date: "%b %d, %Y" }}</em>
 								</div><!-- /.card-header -->
 								<div class="card-body">
-									<p class="card-text">{{ article.content }}</p>
+									<p class="card-text">{{ comment.content }}</p>
 								</div><!-- /.card-body -->
 							</div><!-- /.card -->
 						{% endfor %}
