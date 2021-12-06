@@ -1,0 +1,10 @@
+<section class="article-intro section-padding" >
+	<div class="container">
+		<div class="p-5 mb-4 bg-light rounded-3 bg-sz-cover bg-overlay" style="background-image: url({{ article.image | img_url: 'master' }}); ">
+			<div class="container-fluid py-5 text-center">
+				<h1 class="display-5 fw-bold">{{ article.title }}</h1>
+				<p class="col-md-8 fs-6 mx-auto">By <strong>{{ article.author }}</strong> | Published on <em>{{ article.published_at | date: "%a, %b %d, %y" }}</em></p>
+			</div>
+		</div>
+	</div><!-- /.container -->
+</section><!-- /.article-intro -->

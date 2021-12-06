@@ -1,0 +1,61 @@
+{% for block in section.blocks %}
+	{% case block.type %}
+		{% when 'sidebar_title' %}
+			<h4 class="mb-3">{{ block.settings.sidebar_title_field }}</h4>
+
+		{% when 'sidebar_description' %}
+			<p>{{ block.settings.sidebar_description_field }}</p>
+
+		{% when 'sidebar_image' %}
+			{% if block.settings.sidebar_image_field %}
+				{{ block.settings.sidebar_image_field | img_url: "master" | img_tag }}
+			{% else %}
+				{{ 'product-1' | placeholder_svg_tag }}
+			{% endif %}
+	{% endcase %}
+{% endfor %}
+
+
+{% schema %}
+{
+	"name": "Article Sidebar",
+	"class": "col-12 col-md-4 col-lg-3",
+	"blocks": [
+		{
+			"name": "Heading",
+			"type": "sidebar_title",
+			"settings": [
+				{
+					"type": "text",
+					"id": "sidebar_title_field",
+					"label": "Title",
+					"default": "Sidebar Title"
+				}
+			]
+		},
+		{
+			"name": "Text block",
+			"type": "sidebar_description",
+			"settings": [
+				{
+					"type": "richtext",
+					"id": "sidebar_description_field",
+					"label": "Description",
+					"default": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus optio accusantium deserunt necessitatibus quas cupiditate explicabo, magnam, fuga rerum esse consequuntur suscipit dolores tempore et doloremque eos itaque nesciunt ea!</p>"
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"type": "sidebar_image",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "sidebar_image_field",
+					"label": "Sidebar Image"
+				}
+			]
+		}
+	]
+}
+{% endschema %}
