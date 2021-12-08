@@ -95,7 +95,7 @@
 							<h5>This card hasn't expired yet.</h5>
 						{% endif %}
 
-						<div id="qr-code" class="d-flex justify-content-center"></div>
+						<div id="qr-code" class="d-flex justify-content-center mt-4"></div>
 						<script>
 						new QRCode(document.getElementById('qr-code'), {
 							text: '{{ gift_card.qr_identifier }}',
