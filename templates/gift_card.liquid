@@ -80,19 +80,19 @@
 						<h4>Hey, {{ gift_card.customer.first_name }}!</h4>
 					
 						{% if gift_card.enabled %}
-							<h3>This card is currently enabled.</h3>
+							<h5>This card is currently enabled.</h5>
 						{% else %}
-							<h3>This card is currently disabled.</h3>
+							<h5>This card is currently disabled.</h5>
 						{% endif %}
 
-						<h3>This card expires on: {{ gift_card.expires_on | date: "%b %d %Y" }}</h3>
-						<h3>Balance: {{ gift_card.balance | money_with_currency}}</h3>
-						<h3>Code: {{ gift_card.code }}</h3>
+						<h5>This card expires on: {{ gift_card.expires_on | date: "%b %d %Y" }}</h5>
+						<h5>Balance: {{ gift_card.balance | money_with_currency}}</h5>
+						<h5>Code: {{ gift_card.code }}</h5>
 
 						{% if gift_card.expired %}
-							<h3>This card already expired.</h3>
+							<h5>This card already expired.</h5>
 						{% else %}
-							<h3>This card hasn't expired yet.</h3>
+							<h5>This card hasn't expired yet.</h5>
 						{% endif %}
 
 						<div id="qr-code" class="d-flex justify-content-center"></div>
