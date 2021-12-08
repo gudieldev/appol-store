@@ -10,14 +10,43 @@
   }
 </style>
 
-<div class="template-404 page-width page-margin center">
-  <p>
-    {{ 'templates.404.subtext' | t }}
-  </p>
-  <h1 class="title">
-    {{ 'templates.404.title' | t }}
-  </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
-    {{ 'general.continue_shopping' | t }}
-  </a>
-</div>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-7 mx-auto {{ section.settings.text_alignment }}">
+				<div class="display-1 mb-4">404</div>
+				<h4 class="mb-5">The page you were looking for was not found :(</h4>
+				<a href="{{ routes.all_products_collection_url }}" class="btn btn-outline-danger">Continue Shoping</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% schema %}
+{
+	"name": "Page Not Found",
+	"settings": [
+		{
+			"type": "select",
+			"id": "text_alignment",
+			"label": "Text Alignment",
+			"options": [
+				{
+					"label": "Left",
+					"value": "text-start"
+				},
+				{
+					"label": "Center",
+					"value": "text-center"
+				},
+				{
+					"label": "Right",
+					"value": "text-end"
+				}
+			],
+			"default": "text-center"
+		}
+	]
+}
+{% endschema %}
