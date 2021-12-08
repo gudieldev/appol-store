@@ -64,11 +64,11 @@
 	</head>
 
 	<body class="gradient">
-		<header>
+		<header class="text-center mt-5">
 			<h1>Appol Store</h1>
 		</header>
 		
-		<main>
+		<main class="mb-5 pb-5">
 			<div class="container">
 				<div class="row">
 					<div class="col-10 mx-auto text-center">
@@ -77,25 +77,25 @@
 						<img src="{{ 'gift-card.png' | asset_url }}" alt="">
 
 						<br>
-						Hey, {{ gift_card.customer.first_name }}!
+						<h4>Hey, {{ gift_card.customer.first_name }}!</h4>
 					
 						{% if gift_card.enabled %}
-							<h4>This card is currently enabled.</h4>
+							<h3>This card is currently enabled.</h3>
 						{% else %}
-							<h4>This card is currently disabled.</h4>
+							<h3>This card is currently disabled.</h3>
 						{% endif %}
 
-						<h4>This card expires on: {{ gift_card.expires_on | date: "%b %d %Y" }}</h4>
-						<h4>Balance: {{ gift_card.balance | money_with_currency}}</h4>
-						<h4>Code: {{ gift_card.code }}</h4>
+						<h3>This card expires on: {{ gift_card.expires_on | date: "%b %d %Y" }}</h3>
+						<h3>Balance: {{ gift_card.balance | money_with_currency}}</h3>
+						<h3>Code: {{ gift_card.code }}</h3>
 
 						{% if gift_card.expired %}
-							<h4>This card already expired.</h4>
+							<h3>This card already expired.</h3>
 						{% else %}
-							<h4>This card hasn't expired yet.</h4>
+							<h3>This card hasn't expired yet.</h3>
 						{% endif %}
 
-						<div id="qr-code"></div>
+						<div id="qr-code" class="d-flex justify-content-center"></div>
 						<script>
 						new QRCode(document.getElementById('qr-code'), {
 							text: '{{ gift_card.qr_identifier }}',
