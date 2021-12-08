@@ -6,7 +6,7 @@
 			</button>
 
 			<div class="collapse navbar-collapse" id="main_nav">
-				<ul class="navbar-nav">
+				<ul class="navbar-nav me-auto">
 					{% for link in linklists.main-menu.links %}
 						<li class="nav-item {% if link.links.size > 0 %} dropdown {% endif %}">
 							<a class="nav-link {% if link.links.size > 0 %} dropdown-toggle {% endif %}" href="{{ link.url }}" {% if link.links.size > 0 %} data-bs-toggle="dropdown" {% endif %}>{{ link.title }}</a>
@@ -28,6 +28,11 @@
 						</li><!-- /li -->
 					{% endfor %}
 				</ul><!-- /ul -->
+
+				<form action="{{ routes.search_url }}" class="d-flex">
+					<input class="form-control me-2" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-danger" type="submit">Search</button>
+				</form><!-- /form -->
 			</div><!-- /.collapse -->
 		</div><!-- /.container -->
 	</nav><!-- /nav -->

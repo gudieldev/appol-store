@@ -1,0 +1,73 @@
+<style>
+	strong {
+		background-color: yellow;
+		padding: 3px;
+	}
+</style>
+<section>
+	<div class="hero py-5 bg-light mb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-6 mx-auto">
+					<div class="d-flex flex-column justify-content-center text-center">
+						<h2 class="mb-3">Search Results</h2>
+						<form action="{{ routes.search_url }}" class="d-flex">
+							<input class="form-control me-2" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search" aria-label="Search">
+							<button class="btn btn-outline-danger" type="submit">Search</button>
+						</form><!-- /form -->
+						<h5 class="mt-5 mb-3">{{ search.results_count }} results found for "{{ search.terms }}"</h5>
+					</div>
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</div><!-- /.hero -->
+
+	{% if search.performed %}
+		<div class="search-results">
+			<div class="container">
+				<div class="row">
+					{% paginate search.results by 6 %}
+						{% for item in search.results %}
+							<div class="col-12 col-md-6 mb-4">
+								<div class="result border border-danger rounded-3 p-2">
+									<div class="row">
+										<div class="col-12 col-sm-4">
+											<div class="image">
+												{% if item.object_type == 'article' %}
+													{{ item.image | img_url: 'master' | img_tag: '', 'w-100' }}
+												{% elsif item.object_type == 'product' %}
+													{{ item.featured_image | img_url: 'master' | img_tag: '', 'w-100' }}
+												{% else %}
+													{{ 'image' | placeholder_svg_tag }}
+												{% endif %}
+											</div>
+										</div><!-- /.col -->
+										<div class="col-12 col-sm-8">
+											<div class="content">
+												{% assign badge_color = 'bg-danger' %}
+
+												{% if item.object_type == 'page' %}
+													{% assign badge_color = 'bg-primary' %}
+												{% elsif item.object_type == 'article' %}
+													{% assign badge_color = 'bg-success' %}
+												{% endif %}
+												<h5><span class="badge rounded-pill {{ badge_color }}">{{ item.object_type }}</span></h5>
+												<h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+												<p>{{ item.content | strip_html | truncate: 80 | highlight: search.terms }}</p>
+												{% if item.object_type == 'product' %}
+													<h4>{{ item.price | money_with_currency }}</h4>
+												{% endif %}
+											</div>
+										</div><!-- /.col -->
+									</div><!-- /.row -->
+								</div><!-- /.result -->
+							</div><!-- /.col -->
+						{% endfor %}
+
+						{% render 'appol-pagination', paginate: paginate %}
+					{% endpaginate %}
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</div><!-- /.search-results -->
+	{% endif %}
+</section><!-- /.section -->

@@ -1,13 +1,10 @@
 {
-  "sections": {
-    "main": {
-      "type": "main-list-collections",
-      "settings": {
-        "image_ratio": "square"
-      }
-    }
-  },
-  "order": [
-    "main"
-  ]
+	"sections": {
+		"main": {
+			"type": "appol-main-list-collections"
+		}
+	},
+	"order": [
+		"main"
+	]
 }
