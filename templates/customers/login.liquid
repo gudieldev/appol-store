@@ -8,6 +8,10 @@
 					</div>
 			
 					{% form 'customer_login' %}
+
+						<div class="alert alert-warning">
+							{{ form_errors | default_errors }}
+						</div>
 			
 						<div class="form-floating mb-3">
 							<input type="email" name="customer[email]" class="form-control" id="formEmail" placeholder="Email">
@@ -33,6 +37,11 @@
 					</div>
 		
 					{% form 'recover_customer_password' %}
+
+						<div class="alert alert-warning">
+							{{ form_errors | default_errors }}
+						</div>
+
 						<div class="form-floating mb-3">
 							<input type="email" name="email" class="form-control" id="recoverEmail" placeholder="Email">
 							<label for="recoverEmail">Email</label>
