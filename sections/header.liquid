@@ -33,20 +33,19 @@
 					<input class="form-control me-2" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-danger" type="submit">Search</button>
 				</form><!-- /form -->
-				<div class="icons ms-3">
+				
+				<div class="icons">
 					{% if shop.customer_accounts_enabled %}
 						{% render 'appol-icon-account' %}
 						{% if customer %}
 							<a href="{{ routes.account_url }}">Account</a>
 						{% else %}
 							<a href="{{ routes.account_login_url }}">Login</a>
-							{% if shop.customer_accounts_optional %}
-								<span>or</span>
-								<a href="{{ routes.account_register_url }}">Create an account</a>
-							{% endif %}
+							<span>or</span>
+							<a href="{{ routes.account_register_url }}">Create an account</a>
 						{% endif %}
 					{% endif %}
-				</div><!-- /.icons -->
+				</div>
 			</div><!-- /.collapse -->
 		</div><!-- /.container -->
 	</nav><!-- /nav -->

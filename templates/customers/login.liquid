@@ -1,68 +1,60 @@
 <section>
 	<div class="container">
-		<div class="w-100 d-flex justify-content-center pt-5">
-			<h1>Login</h1>
-		</div><!-- /.w-100 -->
-		<div class="row mt-5">
-			<div class="col-12 col-sm-6 mx-auto">
+		<div class="row">
+			<div class="col-12 col-md-7 mx-auto">
 				<div class="appol-login-form">
+					<div class="heading">
+						<h1>Login</h1>
+					</div>
+			
 					{% form 'customer_login' %}
-					
-						{{ form_errors | default_errors }}
-	
+			
 						<div class="form-floating mb-3">
-							<input type="email" name="customer[email]" class="form-control" id="floatingInput" placeholder="name@example.com">
-							<label for="floatingInput">Email address</label>
+							<input type="email" name="customer[email]" class="form-control" id="formEmail" placeholder="Email">
+							<label for="formEmail">Email</label>
 						</div>
-						<div class="form-floating">
-							<input type="password" name="customer[password]" class="form-control" id="floatingPassword" placeholder="Password">
-							<label for="floatingPassword">Password</label>
+			
+						<div class="form-floating mb-3">
+							<input type="password" name="customer[password]" class="form-control" id="formPassword" placeholder="Password">
+							<label for="formPassword">Passsword</label>
 						</div>
-	
-						<a href="#0" class="d-block my-3">Forgot your password?</a>
-	
-						<div class="d-flex flex-column align-items-center mt-4">
-	
-							<input type="submit" class="btn btn-lg btn-danger mb-3" value="Sign In">			
-							<p>Or <a href="{{ routes.account_register_url }}">create an account</a></p>
-	
-						</div>
-	
+			
+						<a href="#0" class="d-inline-block forgot-password mb-3 mx-auto">Forgot your password?</a>
+						<br>
+						<input type="submit" class="btn btn-lg btn-danger mb-5" value="Login">
+						<br>
+						<a href="{{ routes.account_register_url }}">Create an Account</a>
 					{% endform %}
-
-				</div><!-- /.appol-login-form -->
-				
-
-			</div><!-- /.col -->
-
-		</div><!-- /.row -->
-	</div><!-- /.container -->
-</section><!-- /section -->
-
-<!-- <section>
-	<div class="container">
-		<div class="w-100 d-flex justify-content-center pt-5">
-			<h1>Login</h1>
-		</div>
-		<div class="row mt-5">
-			<div class="col-12 col-sm-6 mx-auto">
-				<div class="form-floating mb-3">
-					<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-					<label for="floatingInput">Email address</label>
 				</div>
-				<div class="form-floating">
-					<input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-					<label for="floatingPassword">Password</label>
-				</div>
-				<a href="#0" class="d-block my-3">Forgot your password?</a>
-				<div class="d-flex flex-column align-items-center mt-4">
 		
-					<input type="submit" class="btn btn-lg btn-danger mb-3" value="Sign In">
+				<div class="appol-recover-password-form d-none">
+					<div class="heading">
+						<h1>Recover Password</h1>
+					</div>
 		
-					<p>Or <a href="#0">create an account</a></p>
+					{% form 'recover_customer_password' %}
+						<div class="form-floating mb-3">
+							<input type="email" name="email" class="form-control" id="recoverEmail" placeholder="Email">
+							<label for="recoverEmail">Email</label>
+						</div>
+		
+						<input type="submit" class="btn btn-lg btn-success" value="Recover Password">
+					{% endform %}
 				</div>
 			</div>
-
 		</div>
 	</div>
-</section> -->
+</section>
+
+<script>
+	let loginFormWrapper = document.querySelector('.appol-login-form');
+	let recoverFormWrapper = document.querySelector('.appol-recover-password-form');
+	let recoverLink = document.querySelector('.forgot-password');
+
+	recoverLink.addEventListener('click', function () {
+		loginFormWrapper.classList.add('d-none');
+		recoverFormWrapper.classList.remove('d-none');
+	});
+
+
+</script>
