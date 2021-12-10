@@ -9,9 +9,11 @@
 			
 					{% form 'customer_login' %}
 
-						<div class="alert alert-warning">
-							{{ form.errors | default_errors }}
-						</div>
+						{% if form.errors %}
+							<div class="alert alert-warning">
+								{{ form.errors | default_errors }}
+							</div>
+						{% endif %}
 			
 						<div class="form-floating mb-3">
 							<input type="email" name="customer[email]" class="form-control" id="formEmail" placeholder="Email">
@@ -37,10 +39,11 @@
 					</div>
 		
 					{% form 'recover_customer_password' %}
-
-						<div class="alert alert-warning">
-							{{ form.errors | default_errors }}
-						</div>
+						{% if form.errors %}
+							<div class="alert alert-warning">
+								{{ form.errors | default_errors }}
+							</div>
+						{% endif %}
 
 						<div class="form-floating mb-3">
 							<input type="email" name="email" class="form-control" id="recoverEmail" placeholder="Email">
