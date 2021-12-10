@@ -10,9 +10,7 @@
 					{% form 'customer_login' %}
 
 						<div class="alert alert-warning">
-							{% for error in form.errors %}
-								{{ error }}
-							{% endfor %}
+							{{ form.errors | default_errors }}
 						</div>
 			
 						<div class="form-floating mb-3">
@@ -41,9 +39,7 @@
 					{% form 'recover_customer_password' %}
 
 						<div class="alert alert-warning">
-							{% for error in form.errors %}
-								{{ error }}
-							{% endfor %}
+							{{ form.errors | default_errors }}
 						</div>
 
 						<div class="form-floating mb-3">
