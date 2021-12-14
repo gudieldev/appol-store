@@ -8,9 +8,11 @@
 				<div class="create-customer-form my-5">
 
 					{% form 'create_customer' %}
-						<div class="alert alert-warning">
-							{{ form.errors | default_errors }}
-						</div>
+						{% if form.errors.size > 0 %}
+							<div class="alert alert-warning">
+								{{ form.errors | default_errors }}
+							</div>
+						{% endif %}
 						<div class="form-floating mb-3">
 							<input type="text" name="customer[first_name]" id="firstName" placeholder="First Name" class="form-control">
 							<label for="firstName">First Name</label>
