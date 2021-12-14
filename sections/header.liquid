@@ -34,18 +34,18 @@
 					<button class="btn btn-outline-danger" type="submit">Search</button>
 				</form><!-- /form -->
 				
-				<div class="icons">
-					{% if shop.customer_accounts_enabled %}
-						{% render 'appol-icon-account' %}
-						{% if customer %}
-							<a href="{{ routes.account_url }}">Account</a>
-						{% else %}
-							<a href="{{ routes.account_login_url }}">Login</a>
-							<span>or</span>
-							<a href="{{ routes.account_register_url }}">Create an account</a>
-						{% endif %}
-					{% endif %}
-				</div>
+<div class="icons">
+	{% if shop.customer_accounts_enabled %}
+		{% render 'appol-icon-account' %}
+		{% if customer %}
+			<a href="{{ routes.account_url }}">Account</a>
+		{% else %}
+			<a href="{{ routes.account_login_url }}">Login</a>
+			<span>or</span>
+			<a href="{{ routes.account_register_url }}">Create an account</a>
+		{% endif %}
+	{% endif %}
+</div>
 			</div><!-- /.collapse -->
 		</div><!-- /.container -->
 	</nav><!-- /nav -->
