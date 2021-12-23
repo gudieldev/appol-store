@@ -11,7 +11,7 @@
 							{% if block.settings.image == blank %}
 								{{ 'image' | placeholder_svg_tag }}
 							{% else %}
-								{{ block.settings.image | img_url: 'master' | img_tag }}	
+								{{ block.settings.image | image_url: 'master' | image_tag }}	
 							{% endif %}
 						</div>
 					{% elsif block.type == 'footer_menu' %}

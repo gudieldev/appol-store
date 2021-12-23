@@ -11,7 +11,7 @@
 		<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
 		{%- if settings.favicon != blank -%}
-			<link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
+			<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: '32x32' }}">
 		{%- endif -%}
 		<link rel="stylesheet" href="">
 
@@ -34,14 +34,15 @@
 
 
 		<script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-	<script src="{{ 'tiny-slider.js' | asset_url }}" defer="defer"></script>
+		<script src="{{ 'tiny-slider.js' | asset_url }}" defer="defer"></script>
 		{{ content_for_header }}
 
-		{%- liquid
+		{%- comment -%}
 			assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
 			assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
 			assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-		%}
+		{%- endcomment -%}
+		
 
 		{%- unless settings.type_body_font.system? -%}
 			<link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -60,7 +61,7 @@
 	{{ 'tiny-slider.css' | asset_url | stylesheet_tag }}
 	{{ 'lightbox.min.css' | asset_url | stylesheet_tag }}
 	{{ 'style.css' | asset_url | stylesheet_tag }}
-	{{ 'vendor/qrcode.js' | shopify_asset_url | script_tag }}
+	<script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer="defer"></script>
 	</head>
 
 	<body class="gradient">
@@ -74,7 +75,7 @@
 					<div class="col-10 mx-auto text-center">
 						<h1>Your Gift Card</h1>
 						<h3>{{ gift_card.balance | money_with_currency }}</h3>
-						<img src="{{ 'gift-card.png' | asset_url }}" alt="">
+						<img src="{{ 'gift-card.png' | asset_url }}" alt="" width="" height="" loading="lazy">
 
 						<br>
 						<h4>Hey, {{ gift_card.customer.first_name }}!</h4>
@@ -86,7 +87,7 @@
 						{% endif %}
 
 						<h5>This card expires on: {{ gift_card.expires_on | date: "%b %d %Y" }}</h5>
-						<h5>Balance: {{ gift_card.balance | money_with_currency}}</h5>
+						<h5>Balance: {{ gift_card.balance | money_with_currency }}</h5>
 						<h5>Code: {{ gift_card.code }}</h5>
 
 						{% if gift_card.expired %}
@@ -110,6 +111,7 @@
 								src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}"
 								width="120"
 								height="40"
+								loading="lazy"
 								alt="Add To Apple Wallet">
 							</a>
 						{% endif %}

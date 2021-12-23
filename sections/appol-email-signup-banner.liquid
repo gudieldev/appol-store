@@ -11,7 +11,7 @@
 
 				<div class="password-form">
 					{% form 'storefront_password' %}
-						{{ form_errors | default_errors }}
+						{{ form.errors | default_errors }}
 					
 						<div class="form-floating">
 							<input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
@@ -26,7 +26,7 @@
 
 				<div class="email-signup-form">
 					{% form 'customer' %}
-						{{ form_errors | default_errors }}
+						{{ form.errors | default_errors }}
 
 						<div class="tags">
 							<input type="hidden" name="contact[tags]">

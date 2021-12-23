@@ -23,7 +23,7 @@
 									{% if article.image == blank %}
 										{{ 'image' | placeholder_svg_tag }}
 									{% else %}
-										{{ article.image | img_url: 'master' | img_tag: '' }}
+										{{ article.image | image_url: 'master' | image_tag: '' }}
 									{% endif %}
 								</div><!-- /.featured-image -->
 							</div><!-- /.featured-image-wrapper -->
@@ -50,6 +50,8 @@
 {% schema %}
 {
 	"name": "Main Blog",
+	"tag": "div",
+	"class": "blog",
 	"settings": [
 		{
 			"type": "text",
