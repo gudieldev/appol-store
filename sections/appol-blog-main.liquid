@@ -23,7 +23,7 @@
 									{% if article.image == blank %}
 										{{ 'image' | placeholder_svg_tag }}
 									{% else %}
-										{{ article.image | image_url: 'master' | image_tag: '' }}
+										{{ article.image | img_url: 'master' | img_tag: '' }}
 									{% endif %}
 								</div><!-- /.featured-image -->
 							</div><!-- /.featured-image-wrapper -->

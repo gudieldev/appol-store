@@ -12,7 +12,7 @@
 									{% if product.featured_image == blank %}
 										{{ 'product-1' | placeholder_svg_tag }}
 									{% else %}
-										{{ product.featured_image | image_url: 'master' | image_tag: 'alt', 'w-100' }}
+										{{ product.featured_image | img_url: 'master' | img_tag: 'alt', 'w-100' }}
 									{% endif %}
 								</div><!-- /.product-img -->
 								<div class="card-body">

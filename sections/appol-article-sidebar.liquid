@@ -8,7 +8,7 @@
 
 		{% when 'sidebar_image' %}
 			{% if block.settings.sidebar_image_field %}
-				{{ block.settings.sidebar_image_field | image_url: "master" | image_tag: '', 'w-100' }}
+				{{ block.settings.sidebar_image_field | img_url: "master" | img_tag: '', 'w-100' }}
 			{% else %}
 				{{ 'product-1' | placeholder_svg_tag }}
 			{% endif %}
