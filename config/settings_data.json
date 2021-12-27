@@ -37,27 +37,7 @@
       "colors_background_1": "#EFECEC",
       "colors_background_2": "#C1BCAE",
       "type_header_font": "americana_n4",
-      "type_body_font": "quattrocento_sans_n4",
-      "sections": {
-        "footer": {
-          "type": "footer",
-          "settings": {
-            "color_scheme": "accent-1"
-          },
-          "blocks": {
-            "menu": {
-              "type": "link_list"
-            },
-            "text": {
-              "type": "text"
-            }
-          },
-          "block_order": [
-            "menu",
-            "text"
-          ]
-        }
-      }
+      "type_body_font": "quattrocento_sans_n4"
     }
   }
 }

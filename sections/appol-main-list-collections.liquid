@@ -7,9 +7,9 @@
 					<div class="card">
 						<a href="{{ collection.url }}">
 							{% if collection.image %}
-								{{ collection.image | img_url: 'master' | img_tag: '', 'card-img-top' }}
+								{{ collection.image | image_url: 'master' | image_tag: '', 'card-img-top' }}
 							{% else %}
-								{{ collection.products.first.image | img_url: 'master' | img_tag: '', 'card-img-top' }}
+								{{ collection.products.first.image | image_url: 'master' | image_tag: '', 'card-img-top' }}
 							{% endif %}
 						</a>
 						<div class="card-body">

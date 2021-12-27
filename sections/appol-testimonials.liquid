@@ -31,7 +31,7 @@
 							<div class="testimonial card">
 								<div class="profile-picture featured-image object-fit-cover bg-light mb-2">
 									{% unless block.settings.author_image == blank %}
-										{{ block.settings.author_image | img_url: 'master' | img_tag: '', '' }}
+										{{ block.settings.author_image | image_url: 'master' | image_tag: '', '' }}
 									{% else %}
 										{{ 'product-5' | placeholder_svg_tag }}
 									{% endunless %}

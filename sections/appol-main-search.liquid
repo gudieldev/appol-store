@@ -34,9 +34,9 @@
 										<div class="col-12 col-sm-4">
 											<div class="image">
 												{% if item.object_type == 'article' %}
-													{{ item.image | img_url: 'master' | img_tag: '', 'w-100' }}
+													{{ item.image | image_url: 'master' | image_tag: '', 'w-100' }}
 												{% elsif item.object_type == 'product' %}
-													{{ item.featured_image | img_url: 'master' | img_tag: '', 'w-100' }}
+													{{ item.featured_image | image_url: 'master' | image_tag: '', 'w-100' }}
 												{% else %}
 													{{ 'image' | placeholder_svg_tag }}
 												{% endif %}
