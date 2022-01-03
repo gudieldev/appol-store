@@ -9,8 +9,8 @@
 						{{ 'lifestyle-' | append: forloop.index | placeholder_svg_tag }}
 					</div><!-- /.slide-img -->
 					<div class="slide-content py-2 px-5">
-						<h3>{{ forloop.index }} Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-						<p>{{ forloop.index }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum cumque, aliquam obcaecati ducimus molestias consequatur saepe ipsam autem commodi doloremque nulla explicabo ipsa reiciendis numquam velit alias? Delectus, suscipit ab.</p>
+						<h3>{{ forloop.index }} {{ 'homepage.featured_slider.slide_title' | t }}</h3>
+						<p>{{ forloop.index }} {{ 'homepage.featured_slider.slide_description' | t }}</p>
 					</div>
 				</div><!-- /.slide -->
 			{% endfor %}
@@ -19,7 +19,7 @@
 				{% if block.type == 'slide' %}
 					<div class="slide border border-info">
 						<div class="slide-img">
-							{{ block.settings.slide_image | image_url: 'master' | image_tag }}
+							{{ block.settings.slide_image | image_url: width: 1200 | image_tag }}
 						</div><!-- /.slide-img -->
 						<div class="slide-content py-2 px-5">
 							<h3>{{ block.settings.slide_heading }}</h3>

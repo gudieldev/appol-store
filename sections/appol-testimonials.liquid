@@ -17,8 +17,8 @@
 							{% endfor %}
 						</div>
 						<div class="text-center mt-3 px-3">
-							<h5>The Name</h5>
-							<p>The testimonial... Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+							<h5>{{ 'homepage.appol_testimonials.name' | t }}</h5>
+							<p>{{ 'homepage.appol_testimonials.testimonial' | t }}</p>
 						</div><!-- /.text-center -->
 					</div><!-- /.testimonial -->
 				</div><!-- /.item -->
@@ -31,7 +31,7 @@
 							<div class="testimonial card">
 								<div class="profile-picture featured-image object-fit-cover bg-light mb-2">
 									{% unless block.settings.author_image == blank %}
-										{{ block.settings.author_image | image_url: 'master' | image_tag: '', '' }}
+										{{ block.settings.author_image | image_url: width: 320 | image_tag: alt: '', class: '' }}
 									{% else %}
 										{{ 'product-5' | placeholder_svg_tag }}
 									{% endunless %}

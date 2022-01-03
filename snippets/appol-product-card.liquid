@@ -1,6 +1,6 @@
 <div class="card">
 	<div class="featured-image">
-		{{ product.featured_image | image_url: 'master' | image_tag }}
+		{{ product.featured_image | image_url: width: 570 | image_tag }}
 	</div>
 	<div class="card-body">
 		<h4>{{ product.price | money_with_currency }}</h4>

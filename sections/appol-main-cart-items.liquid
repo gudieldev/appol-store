@@ -26,7 +26,7 @@
 										<th scope="row">{{ forloop.index }}</th>
 										<td>
 											<div class="product d-flex" style="width: 100px;">
-												{{ item.image | image_url: "master" | image_tag: '', 'img-thumbnail' }}
+												{{ item.image | image_url: width: 120 | image_tag: alt: '', class: 'img-thumbnail' }}
 												<a href="{{ item.url }}" class="ms-2"><h6>{{ item.title }}</h6></a>
 											</div>
 										</td>
