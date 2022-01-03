@@ -1,8 +1,8 @@
 {
   "homepage": {
     "featured_slider": {
-      "slide_title": "Este es el título de diapositiva.",
-      "slide_description": "Esta es la descripción de la diapositiva."
+      "slide_title": "Titulo de prueba",
+      "slide_description": "Descripción de prueba."
     },
     "appol_testimonials": {
       "name": "El nombre",
