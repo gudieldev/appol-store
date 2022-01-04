@@ -15,20 +15,20 @@
 
 {% schema %}
 {
-	"name": "Announcement Bar",
+	"name": "t:sections.appol-announcement-bar.name",
 	"settings": [
 		{
 			"type": "select",
 			"id": "heading_type",
-			"label": "Heading Type",
+			"label": "t:sections.appol-announcement-bar.settings.heading_type.label",
 			"options": [
 				{
 					"value": "h1",
-					"label": "Heading 1"
+					"label": "t:sections.appol-announcement-bar.settings.heading_type.option__1"
 				},
 				{
 					"value": "h2",
-					"label": "Heading 2"
+					"label": "t:sections.appol-announcement-bar.settings.heading_type.option__2"
 				}
 			],
 			"default": "h1"
@@ -36,31 +36,31 @@
 	],
 	"blocks": [
 		{
-			"name": "Announcement",
 			"type": "announcement",
+			"name": "t:sections.appol-announcement-bar.blocks.announcement.name",
 			"settings": [
 				{
 					"type": "text",
 					"id": "announcement_text",
-					"label": "Text",
-					"default": "Hola Mundo"
+					"label": "t:sections.appol-announcement-bar.blocks.announcement.settings.announcement_text.label",
+					"default": "Hello World"
 				},
 				{
 					"type": "select",
 					"id": "text_alignment",
-					"label": "Text Alignment",
+					"label": "t:sections.appol-announcement-bar.blocks.announcement.settings.text_alignment.label",
 					"options": [
 						{
 							"value": "text-start",
-							"label": "Left"
+							"label": "t:sections.appol-announcement-bar.blocks.announcement.settings.text_alignment.option__1"
 						},
 						{
 							"value": "text-center",
-							"label": "Center"
+							"label": "t:sections.appol-announcement-bar.blocks.announcement.settings.text_alignment.option__2"
 						},
 						{
 							"value": "text-end",
-							"label": "Right"
+							"label": "t:sections.appol-announcement-bar.blocks.announcement.settings.text_alignment.option__3"
 						}
 					],
 					"default": "text-start"
