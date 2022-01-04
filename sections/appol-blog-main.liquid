@@ -49,20 +49,22 @@
 
 {% schema %}
 {
-	"name": "Main Blog",
-	"tag": "div",
-	"class": "blog",
-	"settings": [
-		{
-			"type": "text",
-			"id": "blog_title",
-			"label": "Blog Title"
-		},
-		{
-			"type": "textarea",
-			"id": "blog_description",
-			"label": "Blog Description"
-		}
-	]
+  "name": "Main Blog",
+  "tag": "div",
+  "class": "blog",
+  "settings": [
+    {
+      "type": "text",
+      "id": "blog_title",
+      "label": "Blog Title",
+      "default": "Some default text"
+    },
+    {
+      "type": "textarea",
+      "id": "blog_description",
+      "label": "Blog Description",
+      "default": "Some default text"
+    }
+  ]
 }
 {% endschema %}

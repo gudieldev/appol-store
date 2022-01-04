@@ -94,70 +94,70 @@
 
 {% schema %}
 {
-	"name": "Testimonials",
-	"tag": "section",
-	"settings": [
-		{
-			"type": "text",
-			"id": "section_heading",
-			"label": "Section Heading",
-			"default": "Testimonials :)"
-		},
-		{
-			"type": "checkbox",
-			"id": "show_controls",
-			"label": "Show Controls",
-			"default": true
-		},
-		{
-			"type": "checkbox",
-			"id": "show_indicators",
-			"label": "Show Indicators",
-			"default": true
-		},
-		{
-			"type": "range",
-			"id": "slides_per_page",
-			"label": "Slides per Page",
-			"min": 1,
-			"max": 5,
-			"step": 1,
-			"default": 4
-		}
-	],
-	"blocks": [
-		{
-			"name": "Testimonial",
-			"type": "testimonial",
-			"settings": [
-				{
-					"type": "image_picker",
-					"id": "author_image",
-					"label": "Image"
-				},
-				{
-					"type": "range",
-					"id": "rate",
-					"label": "Rate",
-					"min": 1,
-					"max": 5,
-					"step": 1,
-					"default": 1
-				},
-				{
-					"type": "text",
-					"id": "author_name",
-					"label": "Name",
-					"default": "John Doe"
-				},
-				{
-					"type": "richtext",
-					"id": "author_testimonial",
-					"label": "Testimonial",
-					"default": "<p>This is the best online store I ever visit. Everything is high quality and super cheap.</p>"
-				}
-			]
-		}
-	]
+  "name": "Testimonials",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Testimonials :)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_controls",
+      "label": "Show Controls",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_indicators",
+      "label": "Show Indicators",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "slides_per_page",
+      "label": "Slides per Page",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Testimonial",
+      "type": "testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "rate",
+          "label": "Rate",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 1
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Name",
+          "default": "John Doe"
+        },
+        {
+          "type": "richtext",
+          "id": "author_testimonial",
+          "label": "Testimonial",
+          "default": "<p>This is the best online store I ever visit. Everything is high quality and super cheap.</p>"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

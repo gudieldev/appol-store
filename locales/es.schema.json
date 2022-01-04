@@ -224,7 +224,11 @@
 				"heading_type": {
 					"label": "Tipo de Encabezado",
 					"option__1": "Encabezado 1",
-					"option__2": "Encabezado 2"
+					"option__2": "Encabezado 2",
+					"option__3": "Encabezado 3",
+					"option__4": "Encabezado 4",
+					"option__5": "Encabezado 5",
+					"option__6": "Encabezado 6"
 				}
 			},
 			"blocks": {

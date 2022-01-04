@@ -224,7 +224,11 @@
 				"heading_type": {
 					"label": "Heading Type",
 					"option__1": "Heading 1",
-					"option__2": "Heading 2"
+					"option__2": "Heading 2",
+					"option__3": "Heading 3",
+					"option__4": "Heading 4",
+					"option__5": "Heading 5",
+					"option__6": "Heading 6"
 				}
 			},
 			"blocks": {

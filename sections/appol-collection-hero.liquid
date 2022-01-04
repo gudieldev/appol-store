@@ -9,7 +9,7 @@
 					{% assign description = block.settings.description | default: collection.description %}
 					<p class="col-md-8 fs-6 mx-auto">{{ description }}</p>
 				{% elsif block.type == 'separator' %}
-					<hr class="my-4">
+					ss="my-4">
 				{% elsif block.type == 'collection_leading_text' %}
 					{% unless block.settings.leading_text == blank %}
 						<p>{{ block.settings.leading_text }}</p>
@@ -22,58 +22,58 @@
 
 {% schema %}
 {
-	"name": "Collection Hero",
-	"tag": "section",
-	"blocks": [
-		{
-			"name": "Collection Title",
-			"type": "collection_title",
-			"settings": [
-				{
-					"type": "text",
-					"id": "title",
-					"label": "Title"
-				}
-			],
-			"limit": 1
-		},
-		{
-			"name": "Collection Description",
-			"type": "collection_description",
-			"settings": [
-				{
-					"type": "textarea",
-					"id": "description",
-					"label": "Description"
-				}
-			],
-			"limit": 1
-		},
-		{
-			"name": "Separator",
-			"type": "separator",
-			"settings": [
-				{
-					"type": "checkbox",
-					"id": "add_separator",
-					"label": "Add Separator",
-					"default": true
-				}
-			],
-			"limit": 1
-		},
-		{
-			"name": "Collection Leading Text",
-			"type": "collection_leading_text",
-			"settings": [
-				{
-					"type": "textarea",
-					"id": "leading_text",
-					"label": "Leading Text"
-				}
-			],
-			"limit": 1
-		}
-	]
+  "name": "Collection Hero",
+  "tag": "section",
+  "blocks": [
+    {
+      "name": "Collection Title",
+      "type": "collection_title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "name": "Collection Description",
+      "type": "collection_description",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "name": "Separator",
+      "type": "separator",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "add_separator",
+          "label": "Add Separator",
+          "default": true
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "name": "Collection Leading Text",
+      "type": "collection_leading_text",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "leading_text",
+          "label": "Leading Text"
+        }
+      ],
+      "limit": 1
+    }
+  ]
 }
 {% endschema %}

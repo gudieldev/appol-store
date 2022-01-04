@@ -18,58 +18,58 @@
 
 {% schema %}
 {
-	"name": "Social Icons",
-	"tag": "section",
-	"settings": [
-		{
-			"type": "select",
-			"id": "icons_alignment",
-			"label": "Icons alignement",
-			"options": [
-				{
-					"value": "justify-content-start",
-					"label": "Left"
-				},
-				{
-					"value": "justify-content-center",
-					"label": "Center"
-				},
-				{
-					"value": "justify-content-end",
-					"label": "Right"
-				}
-			],
-			"default": "justify-content-center"
-		}
-	],
-	"blocks": [
-		{
-			"name": "Social Icon",
-			"type": "social_icons",
-			"settings": [
-				{
-					"type": "textarea",
-					"id": "svg_code",
-					"label": "SVG Icon Code",
-					"info": "If default icon is selected, then this code will be ignored."
-				},
-				{
-					"type": "url",
-					"id": "icon_url",
-					"label": "Icon URL"
-				},
-				{
-					"type": "text",
-					"id": "icon_title",
-					"label": "Icon Title"
-				},
-				{
-					"type": "checkbox",
-					"id": "target",
-					"label": "Open link in a new tab"
-				}
-			]
-		}
-	]
+  "name": "Social Icons",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "icons_alignment",
+      "label": "Icons alignement",
+      "options": [
+        {
+          "value": "justify-content-start",
+          "label": "Left"
+        },
+        {
+          "value": "justify-content-center",
+          "label": "Center"
+        },
+        {
+          "value": "justify-content-end",
+          "label": "Right"
+        }
+      ],
+      "default": "justify-content-center"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Social Icon",
+      "type": "social_icons",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "svg_code",
+          "label": "SVG Icon Code",
+          "info": "If default icon is selected, then this code will be ignored."
+        },
+        {
+          "type": "url",
+          "id": "icon_url",
+          "label": "Icon URL"
+        },
+        {
+          "type": "text",
+          "id": "icon_title",
+          "label": "Icon Title"
+        },
+        {
+          "type": "checkbox",
+          "id": "target",
+          "label": "Open link in a new tab"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

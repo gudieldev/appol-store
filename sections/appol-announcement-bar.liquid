@@ -5,7 +5,7 @@
 				{% case block.type %}
 					{% when 'announcement' %}
 						<div class="alert alert-primary {{ block.settings.text_alignment }}" role="alert">
-							{{ block.settings.announcement_text }}
+							<{{ section.settings.heading_type }}>{{ block.settings.announcement_text }}</{{ section.settings.heading_type }}>
 						</div><!-- /.alert -->
 				{% endcase %}
 			{% endfor %}
@@ -15,58 +15,88 @@
 
 {% schema %}
 {
-	"name": "t:sections.appol-announcement-bar.name",
-	"settings": [
-		{
-			"type": "select",
-			"id": "heading_type",
-			"label": "t:sections.appol-announcement-bar.settings.heading_type.label",
-			"options": [
-				{
-					"value": "h1",
-					"label": "t:sections.appol-announcement-bar.settings.heading_type.option__1"
-				},
-				{
-					"value": "h2",
-					"label": "t:sections.appol-announcement-bar.settings.heading_type.option__2"
-				}
-			],
-			"default": "h1"
-		}
-	],
-	"blocks": [
-		{
-			"type": "announcement",
-			"name": "t:sections.appol-announcement-bar.blocks.announcement.name",
-			"settings": [
-				{
-					"type": "text",
-					"id": "announcement_text",
-					"label": "t:sections.appol-announcement-bar.blocks.announcement.settings.announcement_text.label",
-					"default": "Hello World"
-				},
-				{
-					"type": "select",
-					"id": "text_alignment",
-					"label": "t:sections.appol-announcement-bar.blocks.announcement.settings.text_alignment.label",
-					"options": [
-						{
-							"value": "text-start",
-							"label": "t:sections.appol-announcement-bar.blocks.announcement.settings.text_alignment.option__1"
-						},
-						{
-							"value": "text-center",
-							"label": "t:sections.appol-announcement-bar.blocks.announcement.settings.text_alignment.option__2"
-						},
-						{
-							"value": "text-end",
-							"label": "t:sections.appol-announcement-bar.blocks.announcement.settings.text_alignment.option__3"
-						}
-					],
-					"default": "text-start"
-				}
-			]
-		}
-	]
+  "name": "t:sections.appol-announcement-bar.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "heading_type",
+      "label": "t:sections.appol-announcement-bar.settings.heading_type.label",
+      "options": [
+        {
+          "value": "h1",
+          "label": "t:sections.appol-announcement-bar.settings.heading_type.option__1"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.appol-announcement-bar.settings.heading_type.option__2"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.appol-announcement-bar.settings.heading_type.option__3"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.appol-announcement-bar.settings.heading_type.option__4"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.appol-announcement-bar.settings.heading_type.option__5"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.appol-announcement-bar.settings.heading_type.option__6"
+        }
+      ],
+      "default": "h1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.appol-announcement-bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "announcement_text",
+          "label": "t:sections.appol-announcement-bar.blocks.announcement.settings.announcement_text.label",
+          "default": "Hello World"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "t:sections.appol-announcement-bar.blocks.announcement.settings.text_alignment.label",
+          "options": [
+            {
+              "value": "text-start",
+              "label": "t:sections.appol-announcement-bar.blocks.announcement.settings.text_alignment.option__1"
+            },
+            {
+              "value": "text-center",
+              "label": "t:sections.appol-announcement-bar.blocks.announcement.settings.text_alignment.option__2"
+            },
+            {
+              "value": "text-end",
+              "label": "t:sections.appol-announcement-bar.blocks.announcement.settings.text_alignment.option__3"
+            }
+          ],
+          "default": "text-start"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {
+      "heading_type": "h5"
+    },
+    "blocks": [
+      {
+        "type": "announcement",
+        "settings": {
+          "announcement_text": "Hello World Default",
+          "text_alignment": "text-center"
+        }
+      }
+    ]
+  }
 }
 {% endschema %}
