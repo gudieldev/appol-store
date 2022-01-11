@@ -13,13 +13,12 @@ productButtons.forEach(button => {
 			document.querySelector('.modal-product-details p').innerHTML = product_data.description;
 
 			let variants = product_data.variants;
-			console.log(product_data);
-			let variantsSelect = document.querySelector('.modal-product-variants');
+			let variantsSelect = document.querySelector('.modal-products-select');
 			variantsSelect.innerHTML = '';
-
-			variants.forEach( ( variant, index ) => {
+			variants.forEach( (variant, index) => {
 				variantsSelect.options[variantsSelect.options.length] = new Option(variant.name, variant.id);
-			});
+			} );
+
 			productModal.show();
 		})
 	});
@@ -31,4 +30,54 @@ createdProductModal.addEventListener('hidden.bs.modal', () => {
 	document.querySelector('.modal-product-details h3').innerText = '';
 	document.querySelector('.modal-product-details h5 strong').innerText = '';
 	document.querySelector('.modal-product-details p').innerHTML = '';
+});
+
+// Add to Cart
+let addToCartForm = document.querySelector('#addToCartForm');
+	if ( addToCartForm != null ) {
+	// do something
+	addToCartForm.addEventListener('submit', (event) => {
+		event.preventDefault();
+		let formData = {
+			'items': [
+				{
+					'id': document.querySelector('.modal-products-select').value,
+					'quantity': document.querySelector('.modal-product-quantity').value
+				}
+			]
+		}
+
+		fetch('/cart/add.js', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(formData)
+		})
+		.then( (response) => {
+			return response.json();
+		})
+		.then( (cart_data) => {
+			updateCart();
+		})
+		.catch( (error) => {
+			console.error('Error ' + error);
+		});
+	});
+}
+
+// Update Cart
+function updateCart() {
+	fetch('/cart.js')
+	.then( (response) => {
+		return response.json();
+	} )
+	.then( (cart_data) => {
+		console.log(cart_data);
+		document.querySelector('.badge-cart-items').innerText = cart_data.items.length;
+	});
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+	updateCart();
 });
