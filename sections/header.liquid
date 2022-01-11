@@ -31,25 +31,35 @@
 				</ul><!-- /ul -->
 
 				<form action="{{ routes.search_url }}" class="d-flex">
-					<input class="form-control me-2" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search" aria-label="Search">
+					<input class="form-control me-2 search-input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-danger" type="submit">Search</button>
 				</form><!-- /form -->
-				
-<div class="icons">
-	{% if shop.customer_accounts_enabled %}
-		{% render 'appol-icon-account' %}
-		{% if customer %}
-			<a href="{{ routes.account_url }}">Account</a>
-		{% else %}
-			<a href="{{ routes.account_login_url }}">Login</a>
-			<span>or</span>
-			<a href="{{ routes.account_register_url }}">Create an account</a>
-		{% endif %}
-	{% endif %}
-</div>
+								
+				<div class="icons">
+					{% if shop.customer_accounts_enabled %}
+						{% render 'appol-icon-account' %}
+						{% if customer %}
+							<a href="{{ routes.account_url }}">Account</a>
+						{% else %}
+							<a href="{{ routes.account_login_url }}">Login</a>
+							<span>or</span>
+							<a href="{{ routes.account_register_url }}">Create an account</a>
+						{% endif %}
+					{% endif %}
+				</div>
 			</div><!-- /.collapse -->
 		</div><!-- /.container -->
 	</nav><!-- /nav -->
+
+	<div class="offcanvas offcanvas-start offcanvasWrapper" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="offcanvasScrollingLabel">Search Results</h5>
+			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body offcanvasSearchResultsWrapper">
+			
+		</div>
+	</div>
 
 {% javascript %}
 document.addEventListener("DOMContentLoaded", function(){

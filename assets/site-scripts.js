@@ -73,7 +73,6 @@ function updateCart() {
 		return response.json();
 	} )
 	.then( (cart_data) => {
-		console.log(cart_data);
 		document.querySelector('.badge-cart-items').innerText = cart_data.items.length;
 	});
 }
@@ -81,3 +80,44 @@ function updateCart() {
 document.addEventListener('DOMContentLoaded', function () {
 	updateCart();
 });
+
+// Predictive Search
+let searchInput = document.querySelector('.search-input');
+let timer;
+
+if (searchInput != null) {
+	searchInput.addEventListener('input', (event) => {
+		clearTimeout(timer);
+		if (searchInput.value) {
+			timer = setTimeout(predictiveSearch, 1500);
+		}
+	});
+}
+
+function predictiveSearch() {
+	let url = `/search/suggest.json?q=${searchInput.value}&resources[type]=product`;
+	fetch( url )
+	.then((response) => {
+		return response.json();
+	})
+	.then((products_data) => {
+		console.log(products_data);
+		let offcanvasWrapper = document.querySelector('.offcanvasWrapper');
+		let bsOffcanvas = new bootstrap.Offcanvas(offcanvasWrapper);
+		let products = products_data.resources.results.products;
+		let productsHTML = '';
+		products.forEach( (product, index) => {
+			productsHTML += `
+				<div class="card">
+					<a href="${product.url}"><img class="w-100" src="${product.image}"/></a>
+					<div class="card-body">
+						<h5>${product.title}</h5>
+						<p>${product.price}</p>
+					</div>
+				</div>
+			`;
+		});
+		document.querySelector('.offcanvasSearchResultsWrapper').innerHTML = productsHTML;
+		bsOffcanvas.show();
+	});
+}
